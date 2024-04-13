@@ -43,20 +43,13 @@ class Update(ModalScreen):
             latest_major, latest_minor = map(
                 int, url.split("/")[-1].split(".", 1))
             if latest_major > VERSION_MAJOR or latest_minor > VERSION_MINOR:
-                tip = Text(f"{self.message("检测到新版本：{0}.{1}").format(
-                    VERSION_MAJOR, VERSION_MINOR)}\n{RELEASES}", style=WARNING)
+                tip = Text(f'{self.message("检测到新版本:{0}.{1}").format(VERSION_MAJOR, VERSION_MINOR)}\n{RELEASES}', style=WARNING)
             elif latest_minor == VERSION_MINOR and VERSION_BETA:
-                tip = Text(
-                    f"{self.message("当前版本为开发版, 可更新至正式版")}\n{RELEASES}",
-                    style=WARNING)
+                tip = Text(f'{self.message("当前版本为开发版, 可更新至正式版")}\n{RELEASES}',style=WARNING)
             elif VERSION_BETA:
-                tip = Text(
-                    self.message("当前已是最新开发版"),
-                    style=WARNING)
+                tip = Text(self.message("当前已是最新开发版"),style=WARNING)
             else:
-                tip = Text(
-                    self.message("当前已是最新正式版"),
-                    style=INFO)
+                tip = Text(self.message("当前已是最新正式版"),style=INFO)
         except ValueError:
             tip = Text(self.message("检测新版本失败"), style=ERROR)
         self.dismiss(tip)

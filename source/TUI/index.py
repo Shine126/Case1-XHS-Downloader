@@ -53,12 +53,12 @@ class Index(Screen):
         yield ScrollableContainer(
             Label(
                 Text(
-                    f"{self.message("开源协议")}: {LICENCE}",
+                    f'{self.message("开源协议")}: {LICENCE}',
                     style=MASTER)
             ),
             Label(
                 Text(
-                    f"{self.message("项目地址")}{REPOSITORY}",
+                    f'{self.message("项目地址")}{REPOSITORY}',
                     style=MASTER)
             ),
             Label(
@@ -83,10 +83,9 @@ class Index(Screen):
         self.tip.write(
             Text(
                 self.message("免责声明\n") +
-                f"\n{
-                ">" *
-                50}",
+                f"\n{'>' * 50}",
                 style=MASTER), scroll_end=False)
+
 
     @on(Button.Pressed, "#deal")
     async def deal_button(self):
